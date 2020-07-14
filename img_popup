@@ -1,0 +1,40 @@
+<style type="text/css">
+button {z-index:999;}
+.imglist:first-child a img {max-width:100px;}
+.imglist a ~ a {display:none;}
+.imglist a img {width:100%;}
+</style>
+
+
+
+
+<p class="imglist">
+	<a href="../img/summer_img01.jpg" data-fancybox="images"><img src="../img/summer_img01.jpg" alt="" /></a>
+	<a href="../img/summer_img02.jpg" data-fancybox="images"><img src="../img/summer_img02.jpg" alt="" /></a>
+	<a href="../img/summer_img03.jpg" data-fancybox="images"><img src="../img/summer_img03.jpg" alt="" /></a>
+</p>
+
+
+
+
+
+
+
+
+$(document).ready(function(){
+
+	$('[data-fancybox="images"]').fancybox({
+		afterLoad : function(instance, current) {
+			var pixelRatio = window.devicePixelRatio || 1;
+			if ( pixelRatio > 1.5 ) {
+				current.width  = current.width  / pixelRatio;
+				current.height = current.height / pixelRatio;
+			}
+		},
+//		buttons : [
+//			'fb',
+//			'close'
+//		]
+	});
+  
+});
